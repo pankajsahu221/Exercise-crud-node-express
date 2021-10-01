@@ -16,8 +16,11 @@ mongoose.connect(process.env.MONGO_URI, {
   useFindAndModify: false
 });
 
-app.use(cors());
-// to use bodyparser
+// Headers Allowance for All Cross Origin
+app.use(cors({
+  allowedHeaders:true,
+}));
+app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded());
 
